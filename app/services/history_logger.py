@@ -11,7 +11,7 @@ def save_history(event, topics):
         with open("history.json", "r") as file:
             try:
                 history = json.load(file)
-            except:
+            except json.JSONDecodeError:
                 history = []
     else:
         history = []

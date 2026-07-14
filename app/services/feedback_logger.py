@@ -6,12 +6,14 @@ def save_feedback(feedback):
         with open("feedback.json", "r") as file:
             try:
                 feedback_data = json.load(file)
-            except:
+            except json.JSONDecodeError:
                 feedback_data = []
     else:
         feedback_data = []
 
-    feedback_data.append({"feedback": feedback})
+    feedback_data.append({
+        "feedback": feedback
+    })
 
     with open("feedback.json", "w") as file:
         json.dump(feedback_data, file, indent=4)

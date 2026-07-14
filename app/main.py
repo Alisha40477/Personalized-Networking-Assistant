@@ -44,7 +44,7 @@ def factcheck(topic: str):
     }
 
 
-@app.get("/save-history")
+@app.post("/save-history")
 def history(event: str):
     topics = analyze_event(event)
     save_history(event, topics)
@@ -54,7 +54,7 @@ def history(event: str):
     }
 
 
-@app.get("/feedback")
+@app.post("/feedback")
 def feedback(feedback: str):
     save_feedback(feedback)
 
